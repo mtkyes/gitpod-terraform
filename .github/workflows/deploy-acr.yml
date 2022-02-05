@@ -22,7 +22,9 @@ jobs:
            tag-custom: latest
            tag-semver: |
             {{raw}}
-        - run: echo $steps.meta.outputs.tags
+        - run: |
+             echo ${{steps.meta.outputs.tags}}
+             echo ${{ github.run_id }}
 
         # - name: 'Build and push image'
         #   uses: azure/docker-login@v1
