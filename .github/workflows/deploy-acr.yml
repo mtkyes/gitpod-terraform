@@ -22,8 +22,6 @@ jobs:
            tag-custom: latest
            tag-semver: |
             {{raw}}
-
-        - name: Show Metadata
         - run: echo $steps.meta.outputs.tags
 
         # - name: 'Build and push image'
