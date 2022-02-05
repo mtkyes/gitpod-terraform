@@ -23,7 +23,7 @@ jobs:
           
         - run: |
              echo ${{steps.docker_meta.outputs.tags}}
-             echo ${{steps.decker_meta.outputs.labels}}
+             echo ${{steps.decker_meta.outputs}}
              echo ${{ github.run_number }}
 
         # - name: 'Build and push image'
