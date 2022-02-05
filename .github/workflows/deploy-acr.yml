@@ -19,12 +19,11 @@ jobs:
           uses: docker/metadata-action@v3
           with:
            images: mtkyes/terraform-gitpod
-           tag-custom: latest
-           tag-semver: |
-            {{raw}}
+           
+          
         - run: |
-             echo ${{steps.meta.outputs.tags}}
-             echo ${{ github.run_id }}
+             echo ${{steps.docker_meta.outputs.tags}}
+             echo ${{ github.run_number }}
 
         # - name: 'Build and push image'
         #   uses: azure/docker-login@v1
