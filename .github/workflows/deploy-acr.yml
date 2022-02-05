@@ -23,14 +23,15 @@ jobs:
           
         - run: |
              echo ${{steps.docker_meta.outputs.tags}}
+             echo ${{steps.decker_meta.outputs.version}}
              echo ${{ github.run_number }}
 
-        - name: 'Build and push image'
-          uses: azure/docker-login@v1
-          with:
-            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-            username: ${{ secrets.REGISTRY_USERNAME }}
-            password: ${{ secrets.REGISTRY_PASSWORD }}
-        - run: |
-            docker build . -f .gitpod.Dockerfile -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/terraform-gitpod:${{steps.docker_meta.outputs.tags}}-${{ github.run_number }}
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/terraform-gitpod:${{steps.docker_meta.outputs.tags}}-${{ github.run_number }}
+        # - name: 'Build and push image'
+        #   uses: azure/docker-login@v1
+        #   with:
+        #     login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        #     username: ${{ secrets.REGISTRY_USERNAME }}
+        #     password: ${{ secrets.REGISTRY_PASSWORD }}
+        # - run: |
+        #     docker build . -f .gitpod.Dockerfile -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/terraform-gitpod:${{steps.docker_meta.outputs.tags}}
+        #     docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/terraform-gitpod:${{steps.docker_meta.outputs.tags}}
