@@ -23,7 +23,7 @@ jobs:
           
         - run: |
              echo ${{steps.docker_meta.outputs.tags}}
-             echo ${{steps.decker_meta.outputs.labels["org.opencontainers.image.version"]}}
+             echo ${{steps.decker_meta.outputs.labels}}
              echo ${{ github.run_number }}
 
         # - name: 'Build and push image'
